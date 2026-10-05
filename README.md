@@ -42,20 +42,39 @@ beyond simply detecting that they exist.
 ├── R/
 │   ├── 01_nys_roc_pr_analysis.R
 │   └── 02_simulation_spatial_overlap.R
-├── data/            # input files (not tracked — see data/README.md)
-│   ├── nys/
-│   └── simulation/
-├── outputs/         # generated figures and tables
 ├── CITATION.cff
 ├── LICENSE
 └── README.md
 ```
 
+## Input data
+
+The data files are not included. Create the folders below in the repository
+root and place the files there before running the scripts.
+
+**`data/nys/`** — NYS breast cancer case study
+
+| File | Description |
+|---|---|
+| `NYS_BreastCancer.geo` | SaTScan™ sample data — LOC_ID, LAT, LON |
+| `NYS_BreastCancer_results.rr.dbf.xlsx` | SaTScan™ per-location relative risk (`*.rr.dbf`) exported to Excel; columns `LOC_ID`, `REL_RISK` |
+| `cluster1_locations.kml` … `cluster5_locations.kml` | SaTScan™ KML output, one file per detected cluster |
+
+**`data/simulation/`** — 20 × 20 lattice simulation
+
+| File | Description |
+|---|---|
+| `sim_example_true_labels.csv` | `;`-separated; columns `loc_id`, `in_high_true` (0/1), `in_low_true` (0/1) |
+| `sim_example_results.gis.dbf` | SaTScan™ GIS output; columns `LOC_ID`, `CLUSTER`, `LOC_RR` |
+
+The NYS `.cas`, `.pop` and `.geo` inputs ship with SaTScan™ as sample data
+(<https://www.satscan.org>).
+
 ## Usage
 
 1. Install [R](https://cran.r-project.org/) (≥ 4.1).
-2. Run SaTScan™ with the configuration above and place the inputs/outputs in
-   `data/` as described in [`data/README.md`](data/README.md).
+2. Run SaTScan™ with the configuration above and place the files in `data/`
+   as described in [Input data](#input-data).
 3. From the repository root:
 
 ```bash
@@ -67,7 +86,7 @@ Missing packages are installed automatically on first run
 (`readxl`, `dplyr`, `stringr`, `ggplot2`, `pROC`, `PRROC`, `purrr`, `tibble`,
 `readr`, `RANN`, `foreign`).
 
-Results are written to `outputs/nys/` (ROC/PR plots, CSV and LaTeX summary
+Results are written (folders are created automatically) to `outputs/nys/` (ROC/PR plots, CSV and LaTeX summary
 table) and `outputs/simulation/` (overlap metrics CSV).
 
 ## Citation
