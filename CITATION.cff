@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the thesis below."
+title: "Evaluation of Kulldorff's Scan Statistic spatial performance"
+authors:
+  - family-names: Kokkinos
+    given-names: Athanasios
+type: software
+license: MIT
+date-released: 2026-02-01
+preferred-citation:
+  type: thesis
+  title: "Evaluation of Kulldorff's Scan Statistic spatial performance"
+  authors:
+    - family-names: Kokkinos
+      given-names: Athanasios
+  institution:
+    name: "Aristotle University of Thessaloniki, Department of Mathematics"
+  year: 2026
+  month: 2
+  notes: "Supervisor: Georgios Tsaklidis"
